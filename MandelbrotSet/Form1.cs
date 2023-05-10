@@ -61,7 +61,14 @@ namespace MandelbrotSet
 
         private void DrawMandelColor(PictureBox display)
         {
-            /*for (int x = 0; x < display.Width; x++)
+            //MethodOneRGB(display);
+            //MethodTwoRGB(display);
+            MethodThreeHSL(display);
+        }
+
+        private void MethodOneRGB(PictureBox display)
+        {
+            for (int x = 0; x < display.Width; x++)
             {
                 for (int y = 0; y < display.Height; y++)
                 {
@@ -86,9 +93,42 @@ namespace MandelbrotSet
                     Engine.bmp.SetPixel(x, y, color);
                 }
             }
-            Engine.Refresh();*/
-            //-----------------------------------------------------------------------------
-            /*for (int x = 0; x < display.Width; x++)
+            Engine.Refresh();
+        }
+
+        private void MethodTwoRGB(PictureBox display)
+        {
+            for (int x = 0; x < display.Width; x++)
+            {
+                for (int y = 0; y < display.Height; y++)
+                {
+                    double re = -2.0 + (3.0 * x / display.Width);
+                    double im = 2.0 - (4.0 * y / display.Height);
+                    Cplx c = new Cplx(re, im);
+
+                    Cplx z = new Cplx(0, 0);
+                    int iterations = 0;
+                    while (z.Norm() < limit && iterations < maxIterations)
+                    {
+                        z = z * z + c;
+                        iterations++;
+                    }
+
+                    int r = (int)((iterations % 16) * 16);
+                    int g = (int)((iterations % 32) * 8);
+                    int b = (int)((iterations % 64) * 4);
+
+                    Color color = (iterations >= maxIterations) ? Color.Black : Color.FromArgb(r, g, b);
+                    Engine.bmp.SetPixel(x, y, color);
+                }
+            }
+            Engine.Refresh();
+        }
+
+        private void MethodThreeHSL(PictureBox display)
+        {
+
+            for (int x = 0; x < display.Width; x++)
             {
                 for (int y = 0; y < display.Height; y++)
                 {
@@ -121,33 +161,6 @@ namespace MandelbrotSet
                     Engine.bmp.SetPixel(x, y, color);
                 }
             }
-            Engine.Refresh();*/
-
-            for (int x = 0; x < display.Width; x++)
-            {
-                for (int y = 0; y < display.Height; y++)
-                {
-                    double re = -2.0 + (3.0 * x / display.Width);
-                    double im = 2.0 - (4.0 * y / display.Height);
-                    Cplx c = new Cplx(re, im);
-
-                    Cplx z = new Cplx(0, 0);
-                    int iterations = 0;
-                    while (z.Norm() < limit && iterations < maxIterations)
-                    {
-                        z = z * z + c;
-                        iterations++;
-                    }
-
-                    int r = (int)((iterations % 16) * 16);
-                    int g = (int)((iterations % 32) * 8);
-                    int b = (int)((iterations % 64) * 4);
-
-                    Color color = (iterations >= maxIterations) ? Color.Black : Color.FromArgb(r, g, b);
-                    Engine.bmp.SetPixel(x, y, color);
-                }
-            }
-
             Engine.Refresh();
         }
 
