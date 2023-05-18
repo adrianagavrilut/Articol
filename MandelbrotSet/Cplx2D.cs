@@ -2,24 +2,24 @@
 
 namespace MandelbrotSet
 {
-    public class Cplx
+    public class Cplx2D
     {
         private double re;
         private double im;
 
-        public Cplx() : this(0, 0)
+        public Cplx2D() : this(0, 0)
         {
         }
 
-        public Cplx(double re, double im)
+        public Cplx2D(double re, double im)
         {
             this.re = re;
             this.im = im;
         }
 
-        public static Cplx operator +(Cplx a, Cplx b)
+        public static Cplx2D operator +(Cplx2D a, Cplx2D b)
         {
-            Cplx t = new Cplx
+            Cplx2D t = new Cplx2D
             {
                 re = a.re + b.re,
                 im = a.im + b.im
@@ -27,9 +27,9 @@ namespace MandelbrotSet
             return t;
         }
 
-        public static Cplx operator -(Cplx a, Cplx b)
+        public static Cplx2D operator -(Cplx2D a, Cplx2D b)
         {
-            Cplx t = new Cplx
+            Cplx2D t = new Cplx2D
             {
                 re = a.re - b.re,
                 im = a.im - b.im
@@ -37,9 +37,9 @@ namespace MandelbrotSet
             return t;
         }
 
-        public static Cplx operator *(Cplx a, Cplx b)
+        public static Cplx2D operator *(Cplx2D a, Cplx2D b)
         {
-            Cplx t = new Cplx
+            Cplx2D t = new Cplx2D
             {
                 re = a.re * b.re - a.im * b.im,
                 im = a.im * b.re + a.re * b.im
@@ -47,12 +47,12 @@ namespace MandelbrotSet
             return t;
         }
 
-        public static Cplx operator /(Cplx a, Cplx b)
+        public static Cplx2D operator /(Cplx2D a, Cplx2D b)
         {
-            Cplx c = b.Conjugate();
-            Cplx up = a * c;
-            Cplx down = b * c;
-            Cplx t = new Cplx
+            Cplx2D c = b.Conjugate();
+            Cplx2D up = a * c;
+            Cplx2D down = b * c;
+            Cplx2D t = new Cplx2D
             {
                 re = up.re / down.re,
                 im = up.im / down.re
@@ -60,9 +60,9 @@ namespace MandelbrotSet
             return t;
         }
 
-        public Cplx Conjugate()
+        public Cplx2D Conjugate()
         {
-            Cplx tmp = new Cplx
+            Cplx2D tmp = new Cplx2D
             {
                 re = re,
                 im = -1 * im
@@ -82,5 +82,7 @@ namespace MandelbrotSet
             else
                 return re.ToString("0.00") + " " + "- i" + (-1 * im).ToString("0.00");
         }
+
     }
 }
+
