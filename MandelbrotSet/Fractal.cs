@@ -16,12 +16,12 @@ namespace MandelbrotSet
         {
             if (twoD && blackWhite)
                 DrawTwoDBW();
-            else if(twoD && colorful)
+            else if (twoD && colorful)
                 DrawTwoDColor();
-            else if (threeD && colorful)
-                DrawThreeDColor();
             else if (threeD && blackWhite)
                 DrawThreeDBW();
+            else if (threeD && colorful)
+                DrawThreeDColor();
         }
 
         private void DrawTwoDBW()
@@ -52,8 +52,8 @@ namespace MandelbrotSet
         private void DrawTwoDColor()
         {
             //MethodOneRGB();
-            //MethodTwoRGB();
-            MethodThreeHSL();
+            MethodTwoRGB();
+            //MethodThreeHSL();
         }
 
         private void MethodOneRGB()
