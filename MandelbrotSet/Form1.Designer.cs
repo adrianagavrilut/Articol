@@ -29,12 +29,10 @@ namespace MandelbrotSet
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.display = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.comboBoxColor = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.buttonStart = new System.Windows.Forms.Button();
             this.buttonClear = new System.Windows.Forms.Button();
@@ -50,7 +48,7 @@ namespace MandelbrotSet
             // display
             // 
             this.display.Location = new System.Drawing.Point(22, 10);
-            this.display.Margin = new System.Windows.Forms.Padding(2);
+            this.display.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.display.Name = "display";
             this.display.Size = new System.Drawing.Size(929, 630);
             this.display.TabIndex = 0;
@@ -186,7 +184,7 @@ namespace MandelbrotSet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1231, 677);
+            this.ClientSize = new System.Drawing.Size(1235, 677);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.pictureBoxZoom);
             this.Controls.Add(this.comboBoxDimension);
@@ -199,7 +197,7 @@ namespace MandelbrotSet
             this.Controls.Add(this.comboBoxColor);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.display);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form";
             this.Text = "Mandelbrot";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -215,7 +213,6 @@ namespace MandelbrotSet
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.ComboBox comboBoxColor;
         public System.Windows.Forms.PictureBox display;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button buttonStart;
         private System.Windows.Forms.Button buttonClear;
